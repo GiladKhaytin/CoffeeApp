@@ -1,4 +1,4 @@
-package coffeApp;
+package coffeeApp;
 
 import java.awt.Color;
 import java.awt.Font;

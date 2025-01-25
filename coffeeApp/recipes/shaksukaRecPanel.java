@@ -1,4 +1,4 @@
-package coffeApp.recipes;
+package coffeeApp.recipes;
 
 import java.awt.Color;
 import java.awt.Font;

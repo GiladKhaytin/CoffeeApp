@@ -1,4 +1,4 @@
-package coffeApp;
+package coffeeApp;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -10,7 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
-import coffeApp.recipes.shaksukaRec;
+import coffeeApp.recipes.shaksukaRec;
 
 public class appPictures {
 

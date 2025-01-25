@@ -1,5 +1,5 @@
 
-package coffeApp;
+package coffeeApp;
 
 import javax.swing.JFrame;
 

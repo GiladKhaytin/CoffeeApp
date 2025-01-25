@@ -1,4 +1,4 @@
-package coffeApp.recipes;
+package coffeeApp.recipes;
 
 import javax.swing.JFrame;
 

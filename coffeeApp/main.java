@@ -1,4 +1,4 @@
-package coffeApp;
+package coffeeApp;
 
 public class main {
 
