@@ -21,7 +21,8 @@ public class appPanel extends JPanel {
     public appPanel(int frameWidth) {
 
         // Load the background image
-        backgroundImage = new ImageIcon("/home/gilad/Desktop/BASIC/CoffeeApp/coffeApp/Images/Coffe Background.jpg").getImage();
+        backgroundImage = new ImageIcon("coffeeApp/Images/Coffe Background.jpg")
+                .getImage();
 
         if (backgroundImage == null) {
             System.out.println("Image not found or failed to load.");
@@ -43,10 +44,8 @@ public class appPanel extends JPanel {
         pictures = new appPictures(frameWidth);
 
         for (int i = 0; i < pictures.buttons.length; i++) {
-            
             this.add(pictures.buttons[i]);
             this.add(pictures.labels[i]);
-
         }
     }
 
@@ -55,22 +54,15 @@ public class appPanel extends JPanel {
         super.paintComponent(g);
 
         if (backgroundImage != null) {
-
             g.drawImage(backgroundImage, 0, 0, this.getWidth(), this.getHeight(), this);
-
-        }
-         else {
-
+        } else {
             System.out.println("Background image is null.");
         }
     }
 
-
     // Helper method to convert Image to BufferedImage
     private BufferedImage toBufferedImage(Image img) {
-
         if (img instanceof BufferedImage) {
-
             return (BufferedImage) img;
         }
 
@@ -85,14 +77,14 @@ public class appPanel extends JPanel {
     private BufferedImage blurImage(BufferedImage image) {
         float[] matrix = {
 
-            1f/25f, 1f/25f, 1f/25f, 1f/25f, 1f/25f,
-            1f/25f, 1f/25f, 1f/25f, 1f/25f, 1f/25f,
-            1f/25f, 1f/25f, 1f/25f, 1f/25f, 1f/25f,
-            1f/25f, 1f/25f, 1f/25f, 1f/25f, 1f/25f,
-            1f/25f, 1f/25f, 1f/25f, 1f/25f, 1f/25f
-            
+                1f / 25f, 1f / 25f, 1f / 25f, 1f / 25f, 1f / 25f,
+                1f / 25f, 1f / 25f, 1f / 25f, 1f / 25f, 1f / 25f,
+                1f / 25f, 1f / 25f, 1f / 25f, 1f / 25f, 1f / 25f,
+                1f / 25f, 1f / 25f, 1f / 25f, 1f / 25f, 1f / 25f,
+                1f / 25f, 1f / 25f, 1f / 25f, 1f / 25f, 1f / 25f
+
         };
-    
+
         ConvolveOp op = new ConvolveOp(new Kernel(5, 5, matrix), ConvolveOp.EDGE_NO_OP, null);
         return op.filter(image, null);
     }

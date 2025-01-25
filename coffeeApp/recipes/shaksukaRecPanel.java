@@ -48,18 +48,18 @@ public class shaksukaRecPanel extends JPanel {
 
         float[] blurKernel = {
 
-            1f/25f, 1f/25f, 1f/25f, 1f/25f, 1f/25f,
-            1f/25f, 1f/25f, 1f/25f, 1f/25f, 1f/25f,
-            1f/25f, 1f/25f, 1f/25f, 1f/25f, 1f/25f,
-            1f/25f, 1f/25f, 1f/25f, 1f/25f, 1f/25f,
-            1f/25f, 1f/25f, 1f/25f, 1f/25f, 1f/25f
+                1f / 25f, 1f / 25f, 1f / 25f, 1f / 25f, 1f / 25f,
+                1f / 25f, 1f / 25f, 1f / 25f, 1f / 25f, 1f / 25f,
+                1f / 25f, 1f / 25f, 1f / 25f, 1f / 25f, 1f / 25f,
+                1f / 25f, 1f / 25f, 1f / 25f, 1f / 25f, 1f / 25f,
+                1f / 25f, 1f / 25f, 1f / 25f, 1f / 25f, 1f / 25f
         };
         Kernel kernel = new Kernel(5, 5, blurKernel);
         ConvolveOp convolveOp = new ConvolveOp(kernel, ConvolveOp.EDGE_NO_OP, null);
 
         // Apply the blur multiple times for a stronger effect
         BufferedImage blurredImage = image;
-        for (int i = 0; i < 5; i++) {  // Increase the number of passes for stronger blur
+        for (int i = 0; i < 5; i++) { // Increase the number of passes for stronger blur
             blurredImage = convolveOp.filter(blurredImage, null);
         }
         return blurredImage;

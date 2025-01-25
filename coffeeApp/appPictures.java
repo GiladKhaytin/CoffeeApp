@@ -13,25 +13,23 @@ import javax.swing.JLabel;
 import coffeeApp.recipes.shaksukaRec;
 
 public class appPictures {
-
     public JButton[] buttons;
     public JLabel[] labels;
     public static String[] imagePaths = {
-        "coffeApp/Images/Shaksuka.jpg",
-        "coffeApp/Images/omlet.png",
-        "coffeApp/Images/Croissant sandwich .jpg"
+            "coffeeApp/Images/Shaksuka.jpg",
+            "coffeeApp/Images/omlet.png",
+            "coffeeApp/Images/Croissant sandwich .jpg"
     };
     private String[] labelTexts = {
-        "Shakshuka 15$",
-        "Omelet 10$",
-        "Croissant 20$"
+            "Shakshuka 15$",
+            "Omelet 10$",
+            "Croissant 20$"
     };
     private int imageWidth = 250;
     private int imageHeight = 250;
     private int spacing = 50;
 
     public appPictures(int frameWidth) {
-
         int numImages = imagePaths.length;
         buttons = new JButton[numImages];
         labels = new JLabel[numImages];
@@ -42,7 +40,6 @@ public class appPictures {
         shaksukaRec recipeFrameOpener = new shaksukaRec(); // Create an instance of shaksukaRec
 
         for (int i = 0; i < numImages; i++) {
-
             // Load and scale the image for the button
             ImageIcon icon = new ImageIcon(imagePaths[i]);
             Image image = icon.getImage().getScaledInstance(imageWidth, imageHeight, Image.SCALE_SMOOTH);
@@ -59,8 +56,9 @@ public class appPictures {
                 @Override
                 public void actionPerformed(ActionEvent e) {
 
-                    recipeFrameOpener.openNewFrame(labelTexts[index], imagePaths[index]); // Pass the image path to the new frame
-                    
+                    recipeFrameOpener.openNewFrame(labelTexts[index], imagePaths[index]); // Pass the image path to the
+                                                                                          // new frame
+
                 }
 
             });
