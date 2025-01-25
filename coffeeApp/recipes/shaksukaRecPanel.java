@@ -19,16 +19,12 @@ public class shaksukaRecPanel extends JPanel {
 
     public shaksukaRecPanel(String recipeTitle, String imagePath) {
         this.setLayout(null);
-
-        // Load the background image
         try {
             BufferedImage originalImage = ImageIO.read(new File(imagePath));
             backgroundImage = blurImage(originalImage);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        // Add title label
         JLabel titleLabel = new JLabel(recipeTitle);
         titleLabel.setBounds(50, 20, 300, 40);
         titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
@@ -45,7 +41,6 @@ public class shaksukaRecPanel extends JPanel {
     }
 
     private BufferedImage blurImage(BufferedImage image) {
-
         float[] blurKernel = {
 
                 1f / 25f, 1f / 25f, 1f / 25f, 1f / 25f, 1f / 25f,
@@ -56,10 +51,8 @@ public class shaksukaRecPanel extends JPanel {
         };
         Kernel kernel = new Kernel(5, 5, blurKernel);
         ConvolveOp convolveOp = new ConvolveOp(kernel, ConvolveOp.EDGE_NO_OP, null);
-
-        // Apply the blur multiple times for a stronger effect
         BufferedImage blurredImage = image;
-        for (int i = 0; i < 5; i++) { // Increase the number of passes for stronger blur
+        for (int i = 0; i < 5; i++) {
             blurredImage = convolveOp.filter(blurredImage, null);
         }
         return blurredImage;

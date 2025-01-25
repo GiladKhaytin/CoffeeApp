@@ -1,3 +1,8 @@
+/** 
+ * This function creating a background image and the main title.
+ * There is a three characteristics, background image, menuTitle, and pictures.
+ * In the "create main titile label" its sends you to appPictures that creating the buttons and the label for the pictures.
+ */
 package coffeeApp;
 
 import java.awt.Color;
@@ -23,7 +28,6 @@ public class appPanel extends JPanel {
         // Load the background image
         backgroundImage = new ImageIcon("coffeeApp/Images/Coffe Background.jpg")
                 .getImage();
-
         if (backgroundImage == null) {
             System.out.println("Image not found or failed to load.");
         } else {
@@ -37,12 +41,10 @@ public class appPanel extends JPanel {
         menuTitle.setHorizontalAlignment(JLabel.CENTER);
         menuTitle.setForeground(Color.white);
         menuTitle.setFont(new Font("Arial", Font.BOLD, 30));
-
         this.setLayout(null);
         this.add(menuTitle);
-
+        // Create the pictures, buttons, and labels
         pictures = new appPictures(frameWidth);
-
         for (int i = 0; i < pictures.buttons.length; i++) {
             this.add(pictures.buttons[i]);
             this.add(pictures.labels[i]);
@@ -65,26 +67,21 @@ public class appPanel extends JPanel {
         if (img instanceof BufferedImage) {
             return (BufferedImage) img;
         }
-
         BufferedImage bimage = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_ARGB);
         Graphics g = bimage.getGraphics();
         g.drawImage(img, 0, 0, null);
         g.dispose();
-
         return bimage;
     }
 
     private BufferedImage blurImage(BufferedImage image) {
         float[] matrix = {
-
                 1f / 25f, 1f / 25f, 1f / 25f, 1f / 25f, 1f / 25f,
                 1f / 25f, 1f / 25f, 1f / 25f, 1f / 25f, 1f / 25f,
                 1f / 25f, 1f / 25f, 1f / 25f, 1f / 25f, 1f / 25f,
                 1f / 25f, 1f / 25f, 1f / 25f, 1f / 25f, 1f / 25f,
                 1f / 25f, 1f / 25f, 1f / 25f, 1f / 25f, 1f / 25f
-
         };
-
         ConvolveOp op = new ConvolveOp(new Kernel(5, 5, matrix), ConvolveOp.EDGE_NO_OP, null);
         return op.filter(image, null);
     }

@@ -1,3 +1,7 @@
+/**
+ * Setting a new frame with width and height, and creating a new function called panel
+ * 
+ */
 
 package coffeeApp;
 
@@ -8,7 +12,6 @@ public class appFrame extends JFrame {
     appPanel panel;
 
     appFrame() {
-
         this.setTitle("Coffee Shop");
         this.setResizable(false);
         this.setSize(1280, 720);
@@ -17,6 +20,5 @@ public class appFrame extends JFrame {
         panel = new appPanel(this.getWidth());
         this.add(panel);
         this.setVisible(true);
-
     }
 }
